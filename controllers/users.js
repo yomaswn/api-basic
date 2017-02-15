@@ -1,12 +1,10 @@
 var db = require("../models");
 var passwordHash = require('password-hash');
 
-// var hashedPassword = passwordHash.generate('password123');
-
 module.exports = {
   list: function(req, res, next){
-    db.User.findAll({raw:true}).then(function(users_data){
-    res.json(users_data);
+    db.User.findAll().then(function(data){
+    res.json(data);
     })
   },
 
