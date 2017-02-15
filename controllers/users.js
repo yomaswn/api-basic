@@ -3,16 +3,16 @@ var passwordHash = require('password-hash');
 
 module.exports = {
   list: function(req, res, next){
-    db.User.findAll().then(function(data){
-    res.json(data);
+    db.User.findAll().then(function(result){
+    res.send(result);
     })
   },
 
   find: function(req, res, next){
     db.User.findOne({
       where: {id: req.params.id}
-    }).then(function(user){
-      res.json({user});
+    }).then(function(result){
+      res.json(result);
     })
   },
 
